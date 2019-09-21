@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head class="page-header header container-fluid">
+    <meta charset="UTF-8">
+    <title>Quiz game</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <script src="js/js.js"> </script>
+    <!--  Navigation -->
+    <nav class="navbar navbar-expand-md ">
+        <div class="container-fluid">
+            <a class="navbar-brand">Play Quiz</a>
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"
+                data-target="#main-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link">Welcome </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nameAfterInput"></a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!--  end of Navigation -->
+
+    <!-- Quiz -->
+
+    <div class="container-fluid padding">
+        <div class="row padding">
+            <div class="col-12">
+                <div class="quizArea">
+
+                    <h2 class="display-4">Welcome to play quiz</h2>
+                    <label for="demo">Please write your name:</label>
+                    <input type="text" class="form-control" id="nameInput"><br>
+                    <form>
+                        <select name="chooseQuestion" class="custom-select">
+                            <option selected>Choose how many question</option>
+                            <option value="five">5</option>
+                            <option value="ten">10</option>
+                        </select>
+                    </form><br>
+                    <button type="button" class="btn btn-primary" id="ok">Lets go!</button><br>
+                    <div id="ani">
+
+                        <h1 class="display-4 text-pop-up-top">PLAY QUIZ</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end of Quiz -->
+
+    <!-- footer -->
+    <footer class="page-footer">
+
+        <div class="footer-copyright text-center" id="footer"> </div>
+        <!-- end of footer -->
+        <!-- Bootstrap JavaScript -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
