@@ -9,20 +9,45 @@
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    //get user name
-    let okButton = document.getElementById("ok");
-    okButton.addEventListener("click", function (event) {
-        window.location.href = "quiz.html";
-        let name = document.getElementById("nameInput").value;
-        let numOfQuestion = document.getElementById("chooseQuestion").selectedIndex+1;
-        let player = new Player(name);
-        localStorage.setItem('playerName', JSON.stringify(player.getName()));
-        localStorage.setItem('playernumOfQuestion',  numOfQuestion);
-        console.log(numOfQuestion);
-        console.log(name);
-        console.log(player);
-        console.log("test");
-    });
+    class Quiz {
+        constructor(questions) {
+            this.players = [];
+            this.questions = questions;
+            this.questionIndex = 0;
+        }
+        getQuestionIndex() {
+            return this.questions[this.questionIndex];
+        }
+
+    }
+    class Question {
+        constructor(questionText, choices, answer) {
+            this.questionText = questionText;
+            this.choices = choices;
+            this.answer = answer;
+
+        }
+    }
+
+    function show() {
+        console.log("show");
+        let questionText = document.getElementById("question");
+        questionText.innerHTML = quiz.getQuestionIndex().questionText;
+
+        let choices = quiz.getQuestionIndex().choices;
+        for (i = 0; i < choices.length; i++) {
+            let choiceText = document.getElementById("choice" + i);
+            choiceText.innerHTML = choices[i];
+        }
+    };
+    let getName = localStorage.getItem("playerName");
+    document.getElementById("nameAfterInput").innerHTML = JSON.parse(getName);
+    let questions = [new Question("Where is Taj Mahal?", ["India", "China", "Iran", "Turkey"], "India"),
+    new Question("What country is kilimanjaro located?", ["Uganda ", "Kenya  ", "Tanzania  ", "Ghana"], "Tanzania")];
+
+    let quiz = new Quiz(questions);
+
+    show();
     class Player {
         constructor(name = "") {
             this.name = name;
@@ -32,7 +57,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return this.name;
         }
     }
-    
+
     class Points {
         constructor() {
             this.ones = 0;

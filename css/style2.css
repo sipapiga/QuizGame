@@ -25,7 +25,23 @@ body {
     padding : 3em;
     box-shadow: 5px 10px #888888;
     }
- 
+    .row button{
+        width: 50%;
+        margin: 20px;
+        background-color:  	#92A7AA;
+        border: none;
+      
+    }
+    .row button:hover{
+        border: 1px solid #666664;
+        background-color:  	#ADADAD;
+      
+    }
+    .row button:visited{
+        border: 1px solid : 	#55DECC;
+        background-color:  	#54DAB9;
+      
+    }
     .page-footer {
     background-color : #FBE8D9;
     color : #ccc;
