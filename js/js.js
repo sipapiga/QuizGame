@@ -15,31 +15,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
         window.location.href = "quiz.html";
         let name = document.getElementById("nameInput").value;
         let numOfQuestion = document.getElementById("chooseQuestion").selectedIndex+1;
-        let player = new Player(name);
-        localStorage.setItem('playerName', JSON.stringify(player.getName()));
+
+        localStorage.setItem('playerName', name);
         localStorage.setItem('playernumOfQuestion',  numOfQuestion);
+   
         console.log(numOfQuestion);
         console.log(name);
-        console.log(player);
         console.log("test");
     });
-    class Player {
-        constructor(name = "") {
-            this.name = name;
-            this.points = new Points();
-        }
-        getName() {
-            return this.name;
-        }
-    }
-    
-    class Points {
-        constructor() {
-            this.ones = 0;
-            this.twoes = 0;
-
-        }
-    }
 
     //get year to copyright in footer
     let today = new Date();

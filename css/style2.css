@@ -25,23 +25,33 @@ body {
     padding : 3em;
     box-shadow: 5px 10px #888888;
     }
-    .row button{
+    #question{
+        width: 100%;
+        height: 50px;
+        background-color:	#92A7AA;
+        border-radius : 5px;
+    }
+    .paginationButton{
+        width: 30%;;
+        
+    }
+    .row button:not(.paginationButton){
         width: 50%;
         margin: 20px;
         background-color:  	#92A7AA;
         border: none;
+        box-shadow: 1px 5px #888888
       
     }
-    .row button:hover{
+    .row button:hover:not(.paginationButton){
         border: 1px solid #666664;
         background-color:  	#ADADAD;
       
-    }
-    .row button:visited{
-        border: 1px solid : 	#55DECC;
-        background-color:  	#54DAB9;
-      
-    }
+    }.row button:focus:not(.paginationButton){
+      border: 1px solid #55DECC;
+      background-color:  	#54DAB9;
+    
+  }
     .page-footer {
     background-color : #FBE8D9;
     color : #ccc;
