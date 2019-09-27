@@ -1,0 +1,102 @@
+[
+    {
+        "question": "Where is Taj Mahal?",
+        "choice": [
+            "India",
+            "China",
+            "Iran",
+            "Turkey"
+        ],
+        "answer": "India"
+    },
+    {
+        "question": "What country is kilimanjaro located?",
+        "choice": [
+            "Uganda",
+            "Kenya",
+            "Tanzania",
+            "Ghana"
+        ],
+        "answer": "Tanzania"
+    },
+    {
+        "question": "In which country is the worlds highest waterfall?",
+        "choice": [
+            "Argentina",
+            "Venezuela",
+            "Brazil",
+            "Colombia"
+        ],
+        "answer": "Venezuela"
+    },
+    {
+        "question": "What is the largest country in the world (by area)?",
+        "choice": [
+            "United States",
+            "Russia",
+            "Canada",
+            "China"
+        ],
+        "answer": "Russia"
+    },
+    {
+        "question": "Which city's famous nickname is the 'Pearl of the Orient'?",
+        "choice": [
+            "Hong Kong",
+            "Taipei",
+            "Singapore",
+            "Kyoto"
+        ],
+        "answer": "Hong Kong"
+    },
+    {
+        "question": "Which of the following countries does NOT have a population exceeding 200 million?",
+        "choice": [
+            "Brazil",
+            "Russia",
+            "Idonesia",
+            "Pakistan"
+        ],
+        "answer": "Russia"
+    },
+    {
+        "question": "Muscat is the capital of which country?",
+        "choice": [
+            "Oman",
+            "Bahrain",
+            "Jordan",
+            "Yemen"
+        ],
+        "answer": "Oman"
+    },
+    {
+        "question": "Which is the world's smallest continent (by area)?",
+        "choice": [
+            "South America",
+            "Oceania",
+            "Europe",
+            "Antarctica"
+        ],
+        "answer": "Oceania"
+    },
+    {
+        "question": "Which of these countries does NOT border Russia?",
+        "choice": [
+            "North Korea",
+            "Poland",
+            "Kazakhstan",
+            "Armenia"
+        ],
+        "answer": "Armenia"
+    },
+    {
+        "question": "Galápagos Islands form part of which South American country?",
+        "choice": [
+            "Chili",
+            "Peru",
+            "Ecuador",
+            "Brazil"
+        ],
+        "answer": "Ecuador"
+    }
+]

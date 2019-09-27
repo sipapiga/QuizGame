@@ -7,75 +7,23 @@
 • VG: Visa en fråga i taget, låt användaren bläddra mellan dem.
 • VG: Responsiv design (edited)  */
 
-class Quiz {
-    constructor(questions) {
-        this.players = new Player();
-        this.questions = questions;
-        this.questionIndex = 0;
-    }
-    getQuestionIndex() {
-        return this.questions[this.questionIndex];
-    }
-    guess(answer) {
-
-    }
-
-}
-class Question {
-    constructor(questionText, choices, answer) {
-        this.questionText = questionText;
-        this.choices = choices;
-        this.answer = answer;
-    }
-    isCorrectAnswer(choice) {
-        return this.answer === choice;
-    }
-}
-class Player {
-    constructor(name = "") {
-        this.name = name;
-        this.points = new Points();
-    }
-    getName() {
-        return this.name;
-    }
-}
-
-class Points {
-    constructor() {
-        this.ones = 0;
-        this.twoes = 0;
-
-    }
-}
-
 window.addEventListener('DOMContentLoaded', (event) => {
-    //get player name
-    let getName = localStorage.getItem("playerName");
-    //get number of question choosed
-    let getNum = localStorage.getItem("playernumOfQuestion");
+    //get json file
+    let json = getJSON("http://www.mocky.io/v2/5d8e48f1310000a2612b543b");
     //Get amount of new quesion from user 
-    let questions = [
-        new Question("Where is Taj Mahal?", ["India", "China", "Iran", "Turkey"], "India"),
-        new Question("What country is kilimanjaro located?", ["Uganda ", "Kenya  ", "Tanzania  ", "Ghana"], "Tanzania"),
-        new Question("In which country is the worlds highest waterfall?", ["Argentina", "Venezuela ", "Brazil ", "Colombia"], "Venezuela"),
-        new Question("What is the largest country in the world (by area)?", ["United States", "Russia", "Canada", "China"], "Russia"),
-        new Question("Which city's famous nickname is the 'Pearl of the Orient'?", ["Hong Kong", "Taipei", "Singapore", "TKyoto"], "Hong Kong"),
-        new Question("Which of the following countries does NOT have a population exceeding 200 million?", ["Brazil", "Russia", "Idonesia", "Pakistan"], "Russia"),
-        new Question("Muscat is the capital of which country?", ["Oman", "Bahrain ", "Jordan", "Yemen"], "Oman"),
-        new Question("Which is the world's smallest continent (by area)?", ["South America", "Oceania", "Europe", "Antarctica"], "Oceania"),
-        new Question("Which of these countries does NOT border Russia?", ["North Korea", "Poland", "Kazakhstan", "Armenia"], "Armenia"),
-        new Question("Galápagos Islands form part of which South American country?", ["Chili", "Peru", "Ecuador", "Brazil"], "Ecuador"),
-    ];
-
+    let getNum = localStorage.getItem("playernumOfQuestion");
+    //add question object into quiz class
     let newQuestions = [];
     for (x = 0; x < getNum; x++) {
-        console.log(questions[x]);
-        newQuestions.push(questions[x]);
+        newQuestions.push(new Question(json[x].question, json[x].choice, json[x].answer));
     }
+    //get player name
+    let getName = localStorage.getItem("playerName");
     let player = new Player(getName);
+    //Put name in html
     document.getElementById("nameAfterInput").innerHTML = player.getName();
-    let quiz = new Quiz(newQuestions);
+    var quiz = new Quiz(newQuestions);
+    quiz.players.push(player);
 
     //next previos button
     let nextButton = document.getElementById("nextQuestion");
@@ -83,6 +31,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     function nextPreButton(num) {
         let current = num;
+        console.log(current);
         if (current === quiz.questions.length - 1) {
             nextButton.style.visibility = 'hidden';
         } else {
@@ -93,26 +42,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
             preButton.style.visibility = 'visible';
         }
     }
-
+    //show next question button
     function showNext() {
         nextPreButton(quiz.questionIndex + 1);
         quiz.questionIndex++;
-        show();
-        console.log("next");
+        showQuiz();
     }
-
+    //show previous question button
     function showPrevious() {
         nextPreButton(quiz.questionIndex - 1);
         quiz.questionIndex--;
-        show();
-        console.log("pre");
+        showQuiz();
     }
     nextButton.addEventListener("click", showNext);
     preButton.addEventListener("click", showPrevious);
-
-    //show qyiz
-    function show() {
+    //show quiz
+    function showQuiz() {
         progress();
+
         let questionText = document.getElementById("question");
         questionText.innerHTML = quiz.getQuestionIndex().questionText;
 
@@ -124,19 +71,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
     function progress() {
         let currentQuestion = quiz.questionIndex + 1;
-        if (currentQuestion < 0) {
+        document.getElementById("questionNum").innerHTML = currentQuestion;
+        let questionRemain = quiz.questions.length - currentQuestion;
+        document.getElementById("questionRemain").innerHTML = questionRemain;
 
-        } else {
-            document.getElementById("questionNum").innerHTML = currentQuestion;
-            let questionRemain = quiz.questions.length - currentQuestion;
-            document.getElementById("questionRemain").innerHTML = questionRemain;
-        }
     }
-    console.log(newQuestions);
-    console.log(quiz);
-    console.log(player);
-
-    show();
+    showQuiz();
+    nextPreButton(0);
     //get year to copyright in footer
     let today = new Date();
     let year = today.getFullYear();

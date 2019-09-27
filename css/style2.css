@@ -94,6 +94,15 @@ body {
       transform: none;
       text-align: center;
     }
+    .quizArea h2{
+      font-size: 50px;
+    }
+    #question{
+      font-size: 15px;
+    }
+    .paginationButton{
+      font-size: 12px;
+    }
     
   }
     
