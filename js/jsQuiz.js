@@ -9,10 +9,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const questionText = document.getElementById("question");
     const nextButton = document.getElementById("nextQuestion");
     const preButton = document.getElementById("preQuestion");
-
+    const finishButton = document.getElementById("finishBtn");
+    const score = document.getElementById("score");
     //create some variables
     let currentProgress = 0;
     let newQuestions = [];
+    let scoreHTML;
     //get json file
     let json = getJSON("http://www.mocky.io/v2/5d8e48f1310000a2612b543b");
 
@@ -31,14 +33,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let player = new Player(name);
     var quiz = new Quiz(newQuestions);
     quiz.players.push(player);
+    check();
 
     function nextPreButton(num) {
         let current = num;
-        console.log(current);
         if (current === quiz.questions.length - 1) {
             nextButton.style.visibility = 'hidden';
+            finishButton.style.visibility = 'visible';
         } else {
             nextButton.style.visibility = 'visible';
+            finishButton.style.visibility = 'hidden';
         } if (current === 0) {
             preButton.style.visibility = 'hidden';
         } else {
@@ -59,23 +63,40 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
     nextButton.addEventListener("click", showNext);
     preButton.addEventListener("click", showPrevious);
+    finishButton.addEventListener("click", showScore);
     //show quiz
     function showQuiz() {
         progress();
-        questionText.innerHTML = quiz.getQuestionIndex().questionText;
-
-        let choices = quiz.getQuestionIndex().choices;
+        questionText.innerHTML = quiz.getCurrentQuestion().questionText;
+        let choices = quiz.getCurrentQuestion().choices;
         for (i = 0; i < choices.length; i++) {
             let choiceText = document.getElementById("choice" + i);
             choiceText.innerHTML = choices[i];
         }
     }
+
+    function check() {
+        for (let x = 0; x <= 3; x++) {
+            let guessButton = document.getElementById("btn" + x);
+            guessButton.addEventListener("click", function () {
+                quiz.checkAnswer(guessButton.textContent);
+            });
+        }
+        console.log(quiz.score);
+    }
+
     function progress() {
         let currentQuestion = quiz.questionIndex + 1;
         document.getElementById("questionNum").innerHTML = currentQuestion;
         let questionRemain = quiz.questions.length - currentQuestion;
         document.getElementById("questionRemain").innerHTML = questionRemain;
 
+    }
+    function showScore() {
+        quizDiv.style.display = "none";
+        score.style.display = "block";
+        scoreHTML = "<h1 class='display-4'>Your score : " + quiz.score + "</h1><br>";
+        score.innerHTML = scoreHTML;
     }
     //get year to copyright in footer
     let today = new Date();

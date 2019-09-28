@@ -81,9 +81,9 @@
     <div class="container-fluid padding">
         <div class="row padding">
             <div class="col-12">
-                <div class="quizArea" style="display: none" id="quiz">
+                <div class="quizArea" id="quiz">
                     <div>
-                        <h2 class="display-4">Geography & Travel</h2>
+                        <h2 class="display-4" id="category">Geography & Travel</h2>
                         <hr style="margin-bottom: 20px">
                         <div class="row padding">
                             <div class="col-md-6">
@@ -98,19 +98,19 @@
                         </div>
                         <div class="row padding text-center">
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success" id="btn0"><span
+                                <button type="button" class="btn btn-success checkButton" id="btn0"><span
                                         id="choice0"></span></button>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success" id="btn1"><span
+                                <button type="button" class="btn btn-success checkButton" id="btn1"><span
                                         id="choice1"></span></button>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success" id="btn2"><span
+                                <button type="button" class="btn btn-success checkButton" id="btn2"><span
                                         id="choice2"></span></button>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success" id="btn3"><span
+                                <button type="button" class="btn btn-success checkButton" id="btn3"><span
                                         id="choice3"></span></button>
                             </div>
                         </div>
@@ -125,6 +125,8 @@
                                         id="preQuestion">Previous</button>
                                     <button type="button" class="btn btn-outline-dark paginationButton"
                                         id="nextQuestion">Next</button>
+                                    <button type="button" class="btn btn-outline-dark paginationButton"
+                                        id="finishBtn">Finish</button>
                                 </div>
                                 <div class="col"></div>
                             </div>
@@ -132,6 +134,7 @@
                     </footer>
                 </div>
             </div>
+            <div class="quizArea" id="score" ></div>
             <div class="col-12" id="ani">
                 <h1 class="display-4 animate">PLAY QUIZ</h1>
             </div>

@@ -5,13 +5,14 @@ class Quiz {
         this.questions = questions;
         this.questionIndex = 0;
     }
-    getQuestionIndex() {
+    getCurrentQuestion() {
         return this.questions[this.questionIndex];
     }
-    guess(answer) {
-
-    }
-
+    checkAnswer(answer) {
+        if (answer == this.getCurrentQuestion().answer) {
+            this.score++;
+        }
+    }   
 }
 
 class Player {
