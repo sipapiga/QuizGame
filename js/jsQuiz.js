@@ -1,33 +1,36 @@
-/* • Skriv en fungerande Quiz-applikation. Visa på sidan hur många frågor som är besvarade.
-• Låt användaren bestämma hur många frågor som ska visas.
-• Skriv klassen Quiz. Den ska hålla reda på användarens namn, frågorna som ingår och hur många frågor som har besvarats korrekt/felaktigt.
-• Skriv klassen Question. Den ska hålla reda på frågekategori, fråga, svarsalternativ och om svarsalternativet är korrekt eller inte. (Hur kan vi lösa det?)
-• Lämna in projektet som ett git-repo.
-• VG: Klassen ska ha en correct-metod, som tar en array som parameter. Arrayen ska innehålla de DOM-element som hör till frågan och kontrollera vilka alternativ som är korrekt ifyllda.
-• VG: Visa en fråga i taget, låt användaren bläddra mellan dem.
-• VG: Responsiv design (edited)  */
-
 window.addEventListener('DOMContentLoaded', (event) => {
+    //create all elements
+    const quizDiv = document.getElementById("quiz");
+    const welcomeDiv = document.getElementById("welcome");
+    const okButton = document.getElementById("ok");
+    const name = document.getElementById("nameInput").value;
+    const welcomeName = document.getElementById("nameAfterInput");
+    const numOfQuestion = document.getElementById("chooseQuestion").selectedIndex + 1;
+    const questionText = document.getElementById("question");
+    const nextButton = document.getElementById("nextQuestion");
+    const preButton = document.getElementById("preQuestion");
+
+    //create some variables
+    let currentProgress = 0;
+    let newQuestions = [];
     //get json file
     let json = getJSON("http://www.mocky.io/v2/5d8e48f1310000a2612b543b");
-    //Get amount of new quesion from user 
-    let getNum = localStorage.getItem("playernumOfQuestion");
-    //add question object into quiz class
-    let newQuestions = [];
-    for (x = 0; x < getNum; x++) {
-        newQuestions.push(new Question(json[x].question, json[x].choice, json[x].answer));
+
+    okButton.addEventListener("click", startQuiz);
+
+    function startQuiz() {
+        quizDiv.style.display = "block";
+        welcomeDiv.style.display = "none";
+        welcomeName.innerHTML = name;
+        for (x = 0; x < numOfQuestion; x++) {
+            newQuestions.push(new Question(json[x].question, json[x].choice, json[x].answer));
+        }
+        showQuiz();
+        nextPreButton(currentProgress);
     }
-    //get player name
-    let getName = localStorage.getItem("playerName");
-    let player = new Player(getName);
-    //Put name in html
-    document.getElementById("nameAfterInput").innerHTML = player.getName();
+    let player = new Player(name);
     var quiz = new Quiz(newQuestions);
     quiz.players.push(player);
-
-    //next previos button
-    let nextButton = document.getElementById("nextQuestion");
-    let preButton = document.getElementById("preQuestion");
 
     function nextPreButton(num) {
         let current = num;
@@ -59,8 +62,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //show quiz
     function showQuiz() {
         progress();
-
-        let questionText = document.getElementById("question");
         questionText.innerHTML = quiz.getQuestionIndex().questionText;
 
         let choices = quiz.getQuestionIndex().choices;
@@ -76,8 +77,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById("questionRemain").innerHTML = questionRemain;
 
     }
-    showQuiz();
-    nextPreButton(0);
     //get year to copyright in footer
     let today = new Date();
     let year = today.getFullYear();
