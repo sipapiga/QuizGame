@@ -8,11 +8,15 @@ class Quiz {
     getCurrentQuestion() {
         return this.questions[this.questionIndex];
     }
-    checkAnswer(answer) {
+    checkAnswer(answer,btn) {
         if (answer == this.getCurrentQuestion().answer) {
             this.score++;
+            console.log(btn);
+            btn.classList.add("correct");
+        }else{
+            btn.classList.add("wrong");
         }
-    }   
+    }  
 }
 
 class Player {

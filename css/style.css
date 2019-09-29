@@ -2,10 +2,10 @@
 body {
     padding : 0;
     margin : 0;
-    background : #F4F3F8;
+    background : 	#0488F5;
     }
     .navbar {
-    background : #FBE8D9;
+    background : 	#D7EEFF;
     }
     .nav-link:hover {
     color : #000;
@@ -17,8 +17,7 @@ body {
     top : 10%;
     left : 10%;
     width : 70%;
-    
-    background : rgb(231 228 231);
+    background :#FFFFFF;
     border : darkred solid 1px;
     border-radius : 10px;
     margin : 4em auto;
@@ -27,6 +26,9 @@ body {
     }
     form {
       width: 70%;
+    }
+    img{
+      width: 100%;
     }
     #ok{
       width: 100px;
@@ -40,11 +42,12 @@ body {
       display: none;
     }
     
-    #question{
+    .question{
         width: 100%;
-        height: 50px;
+        height: 100%;
         background-color:	#92A7AA;
         border-radius : 5px;
+        padding: 3px;
     }
     .paginationButton{
         width: 20%;
@@ -59,18 +62,28 @@ body {
         box-shadow: 1px 5px #888888
       
     }
-    .row button:hover:not(.paginationButton){
-        border: 1px solid #666664;
-        background-color:  	#ADADAD;
-      
-    }.row button:focus:not(.paginationButton){
-      border: 1px solid #55DECC;
-      background-color:  	#54DAB9;
-      box-shadow: 1px 5px	rgb(50, 136, 114);
-    
+    .row button.correct{
+      width: 50%;
+      margin: 20px;
+      background-color:  	rgb(27, 166, 34);
+      border: none;
+      box-shadow: 1px 5px #128052
   }
+  .row button.wrong{
+    width: 50%;
+    margin: 20px;
+    background-color:  	rgb(230, 45, 21);
+    border: none;
+    box-shadow: 1px 5px #b10606
+}
+    .row button:hover:not(.paginationButton){
+        border: 1px solid #747470;
+        background-color:  	rgb(230, 219, 219);
+        color: rgb(65, 62, 62);
+    }
+    
     .page-footer {
-    background-color : #FBE8D9;
+    background-color : 	#D7EEFF;
     color : #ccc;
     padding : 10px;
     }
@@ -81,7 +94,7 @@ body {
         text-align: right;
         text-shadow: 5px 5px  #b4b0b0;
         font-weight: bold;
-        color: #90A2A6;
+        color:	#F6F6FE;
 
     }
     .animate:hover {
