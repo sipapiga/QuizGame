@@ -9,30 +9,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const preButton = document.getElementById("preQuestion");
     const finishButton = document.getElementById("finishBtn");
     const score = document.getElementById("score");
+    var playerName = document.getElementById("nameInput").value;
+    var numOfQuestion = document.getElementById("chooseQuestion").selectedIndex + 1;
+
+
     //create some variables
     let currentProgress = 0;
     let newQuestions = [];
     let scoreHTML;
+    const numberOfClicksPerQuestion = [];
+    const correctPerQuestion = [];
     //get json file
-    let json = getJSON("http://www.mocky.io/v2/5d8e48f1310000a2612b543b");
+    let json = getJSON("http://www.mocky.io/v2/5d91e0d5310000e18410cb79");
 
     okButton.addEventListener("click", startQuiz);
 
     function startQuiz() {
-        const name = document.getElementById("nameInput").value;
-        const numOfQuestion = document.getElementById("chooseQuestion").selectedIndex + 1;
         quizDiv.style.display = "block";
         welcomeDiv.style.display = "none";
-        welcomeName.innerHTML = name;
+        welcomeName.innerHTML = playerName;
         for (x = 0; x < numOfQuestion; x++) {
-            newQuestions.push(new Question(json[x].question, json[x].choice, json[x].answer));
+            newQuestions.push(new Question(json[x].question, json[x].choice));
         }
         showQuiz();
         nextPreButton(currentProgress);
     }
-    let player = new Player(name);
     var quiz = new Quiz(newQuestions);
-    quiz.players.push(player);
+    quiz.playerName = playerName;
+    console.log(quiz.playerName);
+    console.log(quiz);
 
     function nextPreButton(num) {
         let current = num;
@@ -47,6 +52,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         } else {
             preButton.style.visibility = 'visible';
         }
+        resetAllButtons();
     }
     //show next question button
     function showNext() {
@@ -69,25 +75,50 @@ window.addEventListener('DOMContentLoaded', (event) => {
         questionText.innerHTML = quiz.getCurrentQuestion().questionText;
         let choices = quiz.getCurrentQuestion().choices;
         for (i = 0; i < choices.length; i++) {
-            let choiceText = document.getElementById("choice" + i);
-            choiceText.innerHTML = choices[i];
-        }
-        for (let x = 0; x <= 3; x++) {
-            let guessButton = document.getElementById("btn" + x);
-            guessButton.addEventListener("click", selectAnswer);
-            resetButtonClass(guessButton); //*check here again*
+            let choiceText = document.getElementById("btn" + i);
+            choiceText.innerHTML = choices[i].text;
+            const buttonAdd = document.getElementById("btn" + i);
+            buttonAdd.addEventListener("click", selectAnswer);
+            if (choices[i].correct == "true") {
+                console.log("Correct choice: " + choices[i].text);
+                buttonAdd.dataset.correct = "true";
+            } else {
+                buttonAdd.dataset.correct = "false";
+            }
         }
     }
-
     //checking answer if it correct or incorrect
     function selectAnswer(e) {
-        const selectButton = e.target;
-        quiz.checkAnswer(selectButton.innerText, selectButton);
+            let selectedButton = e.target;
+            console.log("element: " + e.target);
+            let userAnswer = e.target.innerHTML;
+            let dataSetCorrect = e.target.dataset.correct;
+            console.log("Your answer: " + userAnswer + " correct?: " + dataSetCorrect);
+            console.log("question now: " + quiz.questionIndex);
+            if (dataSetCorrect == "true") {
+                console.log("You are right");
+                let alreadyCorrect = correctPerQuestion[quiz.questionIndex];
+                if (alreadyCorrect === undefined) {
+                    console.log("Du får en poäng!");
+                    correctPerQuestion[quiz.questionIndex] = true;
+                    quiz.score++;
+                } else {
+                    console.log("no point");
+                }
+                selectedButton.classList.add("correct");
+            } else {
+                console.log("You are wrong");
+                selectedButton.classList.add("wrong");
+            }
     }
 
-    function resetButtonClass(btn) {
-        btn.classList.remove("wrong");
-        btn.classList.remove("correct");
+    function resetAllButtons() {
+        console.log("reset now??");
+        for (var i = 0; i < 4; i++) {
+            const oneButton = document.getElementById("btn" + i);
+            oneButton.classList.remove("wrong");
+            oneButton.classList.remove("correct");
+        }
     }
 
     function progress() {
@@ -101,10 +132,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         quizDiv.style.display = "none";
         score.style.display = "block";
         let calscore = Math.round(100 * quiz.score / quiz.questions.length);
-        let quizLevel = (calscore >= 80) ? "You are a quiz master!" :
-            (calscore >= 60) ? "Well done!" :
-                (calscore >= 40) ? "Almost good, keep trying! :)" :
-                    "You need to improve!";
+        let quizLevel = (calscore >= 80) ? "You are a quiz master " + quiz.playerName + "!" :
+            (calscore >= 60) ? "Well done " + quiz.playerName + "!" :
+                (calscore >= 40) ? "Almost good, keep trying " + quiz.playerName + "! :)" :
+                    "You need to improve " + quiz.playerName + "!";
         scoreHTML = "<h1 class='display-4 text-center'>" + quizLevel + "</h1><br>";
         scoreHTML += "<p class='lead text-center'> You answered " + quiz.score + " out of " + quiz.questions.length + " correct" + "<p>";
         score.innerHTML = scoreHTML;

@@ -1,7 +1,6 @@
 class Question {
-    constructor(questionText, choices, answer) {
+    constructor(questionText, choices) {
         this.questionText = questionText;
         this.choices = choices;
-        this.answer = answer;
     }
 }

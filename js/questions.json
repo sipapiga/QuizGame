@@ -2,101 +2,232 @@
     {
         "question": "Where is Taj Mahal?",
         "choice": [
-            "India",
-            "China",
-            "Iran",
-            "Turkey"
-        ],
-        "answer": "India"
+            {
+                "text": "India",
+                "correct": "true"
+            },
+            {
+                "text": "China",
+                "correct": "false"
+            },
+            {
+                "text": "Iran",
+                "correct": "false"
+            },
+            {
+                "text": "Turkey",
+                "correct": "false"
+            }
+        ]
+    },
+    {
+        "question": "Which country has metropolitan areas than Oslo?",
+        "choice": [
+            {
+                "text": "Gothenburg",
+                "correct": "false"
+            },
+            {
+                "text": "Stockholm",
+                "correct": "true"
+            },
+            {
+                "text": "Helsinki",
+                "correct": "false"
+            },
+            {
+                "text": "Copenhagen",
+                "correct": "true"
+            }
+        ]
     },
     {
         "question": "What country is kilimanjaro located?",
         "choice": [
-            "Uganda",
-            "Kenya",
-            "Tanzania",
-            "Ghana"
-        ],
-        "answer": "Tanzania"
+            {
+                "text": "Uganda",
+                "correct": "false"
+            },
+            {
+                "text": "Kenya",
+                "correct": "false"
+            },
+            {
+                "text": "Tanzania",
+                "correct": "true"
+            },
+            {
+                "text": "Ghana",
+                "correct": "false"
+            }
+        ]
     },
     {
         "question": "In which country is the worlds highest waterfall?",
         "choice": [
-            "Argentina",
-            "Venezuela",
-            "Brazil",
-            "Colombia"
-        ],
-        "answer": "Venezuela"
+            {
+                "text": "Argentina",
+                "correct": "false"
+            },
+            {
+                "text": "Venezuela",
+                "correct": "true"
+            },
+            {
+                "text": "Brazil",
+                "correct": "false"
+            },
+            {
+                "text": "Colombia",
+                "correct": "false"
+            }
+        ]
     },
     {
         "question": "What is the largest country in the world (by area)?",
         "choice": [
-            "United States",
-            "Russia",
-            "Canada",
-            "China"
-        ],
-        "answer": "Russia"
+            {
+                "text": "United States",
+                "correct": "false"
+            },
+            {
+                "text": "Russia",
+                "correct": "true"
+            },
+            {
+                "text": "Canada",
+                "correct": "false"
+            },
+            {
+                "text": "China",
+                "correct": "false"
+            }
+        ]
     },
     {
         "question": "Which city's famous nickname is the 'Pearl of the Orient'?",
         "choice": [
-            "Hong Kong",
-            "Taipei",
-            "Singapore",
-            "Kyoto"
-        ],
-        "answer": "Hong Kong"
+            {
+                "text": "Hong Kong",
+                "correct": "true"
+            },
+            {
+                "text": "Taipei",
+                "correct": "false"
+            },
+            {
+                "text": "Singapore",
+                "correct": "false"
+            },
+            {
+                "text": "Kyoto",
+                "correct": "false"
+            }
+        ]
     },
     {
         "question": "Which of the following countries does NOT have a population exceeding 200 million?",
         "choice": [
-            "Brazil",
-            "Russia",
-            "Idonesia",
-            "Pakistan"
-        ],
-        "answer": "Russia"
+            {
+                "text": "Brazil",
+                "correct": "false"
+            },
+            {
+                "text": "Russia",
+                "correct": "true"
+            },
+            {
+                "text": "Idonesia",
+                "correct": "false"
+            },
+            {
+                "text": "Pakistan",
+                "correct": "false"
+            }
+        ]
     },
     {
         "question": "Muscat is the capital of which country?",
         "choice": [
-            "Oman",
-            "Bahrain",
-            "Jordan",
-            "Yemen"
-        ],
-        "answer": "Oman"
+            {
+                "text": "Oman",
+                "correct": "true"
+            },
+            {
+                "text": "Bahrain",
+                "correct": "false"
+            },
+            {
+                "text": "Jordan",
+                "correct": "true"
+            },
+            {
+                "text": "Yemen",
+                "correct": "false"
+            }
+        ]
     },
     {
         "question": "Which is the world's smallest continent (by area)?",
         "choice": [
-            "South America",
-            "Oceania",
-            "Europe",
-            "Antarctica"
-        ],
-        "answer": "Oceania"
+            {
+                "text": "South America",
+                "correct": "false"
+            },
+            {
+                "text": "Oceania",
+                "correct": "true"
+            },
+            {
+                "text": "Europe",
+                "correct": "false"
+            },
+            {
+                "text": "Antarctica",
+                "correct": "false"
+            }
+        ]
     },
     {
         "question": "Which of these countries does NOT border Russia?",
         "choice": [
-            "North Korea",
-            "Poland",
-            "Kazakhstan",
-            "Armenia"
-        ],
-        "answer": "Armenia"
+            {
+                "text": "North Korea",
+                "correct": "false"
+            },
+            {
+                "text": "Poland",
+                "correct": "false"
+            },
+            {
+                "text": "Kazakhstan",
+                "correct": "false"
+            },
+            {
+                "text": "Armenia",
+                "correct": "true"
+            }
+        ]
     },
     {
         "question": "Galápagos Islands form part of which South American country?",
         "choice": [
-            "Chili",
-            "Peru",
-            "Ecuador",
-            "Brazil"
-        ],
-        "answer": "Ecuador"
+            {
+                "text": "Chili",
+                "correct": "false"
+            },
+            {
+                "text": "Peru",
+                "correct": "false"
+            },
+            {
+                "text": "Ecuador",
+                "correct": "true"
+            },
+            {
+                "text": "Brazil",
+                "correct": "false"
+            }
+        ]
     }
 ]

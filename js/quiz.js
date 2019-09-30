@@ -1,29 +1,14 @@
 class Quiz {
     constructor(questions) {
-        this.players = [];
+        this.playerName = "";
         this.score = 0;
         this.questions = questions;
         this.questionIndex = 0;
     }
+    getPlayerName() {
+        return this.playerName;
+    }
     getCurrentQuestion() {
         return this.questions[this.questionIndex];
-    }
-    checkAnswer(answer,btn) {
-        if (answer == this.getCurrentQuestion().answer) {
-            this.score++;
-            console.log(btn);
-            btn.classList.add("correct");
-        }else{
-            btn.classList.add("wrong");
-        }
-    }  
-}
-
-class Player {
-    constructor(name = "") {
-        this.name = name;
-    }
-    getName() {
-        return this.name;
     }
 }
