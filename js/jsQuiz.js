@@ -33,6 +33,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
         showQuiz();
         nextPreButton(currentProgress);
+       
     }
     var quiz = new Quiz(newQuestions);
     quiz.playerName = playerName;
@@ -87,33 +88,44 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }
         }
     }
-    //checking answer if it correct or incorrect
+
+    //checking answer if it correct or incorrect and control how many click per question
     function selectAnswer(e) {
+        let clicksInThisQuestion = numberOfClicksPerQuestion[quiz.questionIndex];
+        if (!clicksInThisQuestion) {
+            clicksInThisQuestion = 1;
+        }
+        else {
+            clicksInThisQuestion = clicksInThisQuestion + 1;
+        }
+        numberOfClicksPerQuestion[quiz.questionIndex] = clicksInThisQuestion;
+        if (clicksInThisQuestion < 3) {
             let selectedButton = e.target;
             console.log("element: " + e.target);
             let userAnswer = e.target.innerHTML;
             let dataSetCorrect = e.target.dataset.correct;
+
             console.log("Your answer: " + userAnswer + " correct?: " + dataSetCorrect);
             console.log("question now: " + quiz.questionIndex);
             if (dataSetCorrect == "true") {
                 console.log("You are right");
                 let alreadyCorrect = correctPerQuestion[quiz.questionIndex];
                 if (alreadyCorrect === undefined) {
-                    console.log("Du får en poäng!");
                     correctPerQuestion[quiz.questionIndex] = true;
                     quiz.score++;
-                } else {
-                    console.log("no point");
                 }
+                numberOfClicksPerQuestion[quiz.questionIndex] = clicksInThisQuestion;
                 selectedButton.classList.add("correct");
             } else {
                 console.log("You are wrong");
                 selectedButton.classList.add("wrong");
             }
+        } else {
+            showNext();
+        }
     }
 
     function resetAllButtons() {
-        console.log("reset now??");
         for (var i = 0; i < 4; i++) {
             const oneButton = document.getElementById("btn" + i);
             oneButton.classList.remove("wrong");
@@ -140,6 +152,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         scoreHTML += "<p class='lead text-center'> You answered " + quiz.score + " out of " + quiz.questions.length + " correct" + "<p>";
         score.innerHTML = scoreHTML;
     }
+
     //get year to copyright in footer
     let today = new Date();
     let year = today.getFullYear();
