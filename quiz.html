@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head class="page-header header container-fluid">
     <meta charset="UTF-8">
@@ -56,11 +56,11 @@
                         <div class="col-md-6">
                             <form>
                                 <div class="form-group">
-                                    <label for="demo">Please write your name:</label>
+                                    <label>Please write your name:</label>
                                     <input type="text" class="form-control" id="nameInput">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Please select how many questions do you
+                                    <label>Please select how many questions do you
                                         want?</label>
                                     <select class="form-control" id="chooseQuestion">
                                         <option>1</option>
@@ -77,10 +77,11 @@
                                     </select>
                                 </div>
                             </form><br>
-                            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#ruleModal" id="ok">Lets go!</button> <br>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ruleModal"
+                                id="ok">Lets go!</button> <br>
                         </div>
                         <div class="col-md-6">
-                            <img src="images/quiz.jpg">
+                            <img src="images/quiz.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -100,8 +101,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>The quiz contains a multiple choice question that these type of questions can have more than one
-                        correct answer. The answer is marked as correct when all the correct answers are chosen.</p>
+                    <p>The quiz contains multiple choice questions, meaning that more than one answer can be correct. A
+                        question is marked as passed when correct answers are selected.</p>
                     <p> Each question allows 2 attempts.</p>
                     <p>Good Luck! </p>
                 </div>
@@ -119,7 +120,7 @@
             <div class="col-12">
                 <div class="quizArea" id="quiz">
                     <div>
-                        <h2 class="display-4" id="category">Geography & Travel</h2>
+                        <h2 class="display-4" id="category"></h2>
                         <hr style="margin-bottom: 20px">
                         <div class="row padding">
                             <div class="col-md-6">
@@ -134,16 +135,20 @@
                         </div>
                         <div class="row padding text-center">
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success checkButton" id="btn0"></button>
+                                <label class="option"><input type="checkbox" id="btn0" name="chk"><span
+                                        id="choice0"></span> </label>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success checkButton" id="btn1"></button>
+                                <label class="option"><input type="checkbox" id="btn1" name="chk"><span
+                                        id="choice1"></span> </label>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success checkButton" id="btn2"></button>
+                                <label class="option"><input type="checkbox" id="btn2" name="chk"><span
+                                        id="choice2"></span> </label>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success checkButton" id="btn3"></button>
+                                <label class="option"><input type="checkbox" id="btn3" name="chk"><span
+                                        id="choice3"></span> </label>
                             </div>
                         </div>
                     </div>
@@ -153,8 +158,6 @@
                             <div class="row padding">
                                 <div class="col"></div>
                                 <div class="col-md-6 text-center">
-                                    <button type="button" class="btn btn-outline-dark paginationButton"
-                                        id="preQuestion">Previous</button>
                                     <button type="button" class="btn btn-outline-dark paginationButton"
                                         id="nextQuestion">Next</button>
                                     <button type="button" class="btn btn-outline-dark paginationButton"
@@ -171,7 +174,6 @@
                 <h1 class="display-4 animate">QUIZ TIME</h1>
             </div>
         </div>
-    </div>
     </div>
     <!-- end of Quiz -->
 
