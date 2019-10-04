@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const finishButton = document.getElementById("finishBtn");
     const score = document.getElementById("score");
     const category = document.getElementById("category");
+    let inputs = document.getElementsByTagName("input");
     let playerName = document.getElementById("nameInput").value;
 
     //create some variables
@@ -60,8 +61,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     finishButton.addEventListener("click", showScore);
 
     function resetAllButtons() {
-        console.log("reset now??");
-        let inputs = document.getElementsByTagName("input");
         for (let i in inputs)
             if (inputs[i].type == "checkbox")
                 inputs[i].checked = false;

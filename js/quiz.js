@@ -28,23 +28,31 @@ class Quiz {
     }
     //checking answer if it correct or incorrect and control click per question
     selectAnswer() {
+        let numberOfChecksPerQuestion = 0;
         let correctPerQuestion = [];
-        let choices = 4;
-        for (let i = 0; i < choices; i++) {
-            let userAnswer = document.getElementById("btn" + i);
-            console.log(userAnswer);
-            if (userAnswer.checked == true) {
-                let dataSetCorrect = userAnswer.dataset.correct;
-                if (dataSetCorrect == "true") {
-                    console.log("You are right");
-                    let alreadyCorrect = correctPerQuestion[this.questionIndex];
-                    if (alreadyCorrect === undefined) {
-                        correctPerQuestion[this.questionIndex] = true;
-                        this.score++;
-                        console.log("score " + this.score);
+        let userAnswer = document.getElementsByName('chk');
+        for (let i = 0; i < userAnswer.length; i++) {
+            if (userAnswer[i].checked == true) {
+                numberOfChecksPerQuestion++;
+                if (numberOfChecksPerQuestion < 3) {
+                    let dataSetCorrect = userAnswer[i].dataset.correct;
+                    if (dataSetCorrect == "true") {
+                        console.log("You are right");
+                        let alreadyCorrect = correctPerQuestion[this.questionIndex];
+                        if (alreadyCorrect === undefined) {
+                            correctPerQuestion[this.questionIndex] = true;
+                            this.score++;
+                            console.log("score " + this.score);
+                        }
+                    } else {
+                        console.log("You are wrong");
                     }
                 } else {
-                    console.log("You are wrong");
+                    alert("You can only select a maximum of 2 checkboxes");
+                    userAnswer[i].checked = false;
+                    if (this.score > 0) {
+                        this.score--;
+                    }
                 }
             }
         }
