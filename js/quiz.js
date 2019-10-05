@@ -10,8 +10,7 @@ class Quiz {
     }
     //show quiz
     renderQuiz() {
-        console.log("Q index " + this.questionIndex);
-        const questionText = document.getElementById("question");
+        let questionText = document.getElementById("question");
         this.progress();
         questionText.innerHTML = this.getCurrentQuestion().questionText;
         let choiceJson = this.getCurrentQuestion().choices;
@@ -37,15 +36,12 @@ class Quiz {
                 if (numberOfChecksPerQuestion < 3) {
                     let dataSetCorrect = userAnswer[i].dataset.correct;
                     if (dataSetCorrect == "true") {
-                        console.log("You are right");
                         let alreadyCorrect = correctPerQuestion[this.questionIndex];
                         if (alreadyCorrect === undefined) {
                             correctPerQuestion[this.questionIndex] = true;
                             this.score++;
                             console.log("score " + this.score);
                         }
-                    } else {
-                        console.log("You are wrong");
                     }
                 } else {
                     alert("You can only select a maximum of 2 checkboxes");
@@ -62,6 +58,5 @@ class Quiz {
         document.getElementById("questionNum").innerHTML = currentQuestion;
         let questionRemain = this.questions.length - currentQuestion;
         document.getElementById("questionRemain").innerHTML = questionRemain;
-
     }
 }

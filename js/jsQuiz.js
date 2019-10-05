@@ -8,8 +8,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const finishButton = document.getElementById("finishBtn");
     const score = document.getElementById("score");
     const category = document.getElementById("category");
-    let inputs = document.getElementsByTagName("input");
-    let playerName = document.getElementById("nameInput").value;
+    const inputs = document.getElementsByTagName("input");
+    const playerName = document.getElementById("nameInput").value;
 
     //create some variables
     let currentProgress = 0;
@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     okButton.addEventListener("click", startQuiz);
 
     function startQuiz() {
-        let numOfQuestion = document.getElementById("chooseQuestion").selectedIndex + 1;
+        const numOfQuestion = document.getElementById("chooseQuestion").selectedIndex + 1;
         quizDiv.style.display = "block";
         welcomeDiv.style.display = "none";
         welcomeName.innerHTML = playerName;

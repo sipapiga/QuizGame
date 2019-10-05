@@ -69,11 +69,11 @@ img{
   cursor: pointer;   
   }
 .option span{
-  padding: 5px;
+  padding: 10px;
+  vertical-align: middle;
   }
-.option input:checked.option{
-  background: rgb(161, 136, 230);
-  color: black;
+.option input{
+  vertical-align: middle;
   }
 .page-footer {
   background-color : 	#D7EEFF;
@@ -123,9 +123,20 @@ img{
     #question{
       font-size: 15px;
     }
+    .option{
+      font-size: 13px;
+    }
     .paginationButton{
       width: 25%;
       font-size: 12px;
     }
   }
+   /*  Medium devices (Ipad, 576px and up) */
+ @media (max-width: 768px) {
+  
+  .option{
+    font-size: 13px;
+  }
+ 
+}
  
