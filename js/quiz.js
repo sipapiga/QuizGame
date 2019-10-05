@@ -18,41 +18,38 @@ class Quiz {
             let choices = document.getElementById("choice" + i);
             choices.innerHTML = choiceJson[i].text;
             let selectedChoice = document.getElementById("btn" + i);
-            if (choiceJson[i].correct == "true") {
-                selectedChoice.dataset.correct = "true";
-            } else {
-                selectedChoice.dataset.correct = "false";
-            }
         }
     }
     //checking answer if it correct or incorrect and control click per question
     selectAnswer() {
         let numberOfChecksPerQuestion = 0;
         let correctPerQuestion = [];
-        let userAnswer = document.getElementsByName('chk');
-        for (let i = 0; i < userAnswer.length; i++) {
-            if (userAnswer[i].checked == true) {
+        let checkbox = document.getElementsByName('chk');
+        for (let i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked == true) {
                 numberOfChecksPerQuestion++;
                 if (numberOfChecksPerQuestion < 3) {
-                    let dataSetCorrect = userAnswer[i].dataset.correct;
-                    if (dataSetCorrect == "true") {
+                    let userAnswer = Array.from(document.getElementsByName('chk')).map((answer) => {
+                        return answer.checked
+                    });
+                    let correctAnswers = this.getCurrentQuestion().choices.map((question) => {
+                        return question.correct
+                    });
+                    if (userAnswer.join() == correctAnswers.join()) {
                         let alreadyCorrect = correctPerQuestion[this.questionIndex];
                         if (alreadyCorrect === undefined) {
                             correctPerQuestion[this.questionIndex] = true;
                             this.score++;
-                            console.log("score " + this.score);
                         }
                     }
                 } else {
                     alert("You can only select a maximum of 2 checkboxes");
-                    userAnswer[i].checked = false;
-                    if (this.score > 0) {
-                        this.score--;
-                    }
+                    checkbox[i].checked = false;
                 }
             }
         }
     }
+
     progress() {
         let currentQuestion = this.questionIndex + 1;
         document.getElementById("questionNum").innerHTML = currentQuestion;
