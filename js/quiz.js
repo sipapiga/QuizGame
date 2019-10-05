@@ -44,10 +44,12 @@ class Quiz {
                     }
                 } else {
                     alert("You can only select a maximum of 2 checkboxes");
-                    checkbox[i].checked = false;
+                    checkbox[i].checked = true;
+                    return false;
                 }
             }
         }
+        return true;
     }
 
     progress() {

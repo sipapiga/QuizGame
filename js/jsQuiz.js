@@ -51,10 +51,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
     //show next question button
     function showNext() {
-        quiz.selectAnswer();
-        nextPreButton(quiz.questionIndex + 1);
-        quiz.questionIndex++;
-        quiz.renderQuiz();
+        let continueNext = quiz.selectAnswer();
+        if (continueNext == true) {
+            nextPreButton(quiz.questionIndex + 1);
+            quiz.questionIndex++;
+            quiz.renderQuiz();
+        }
     }
 
     nextButton.addEventListener("click", showNext);
