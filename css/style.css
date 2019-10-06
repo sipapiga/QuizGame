@@ -131,12 +131,3 @@ img{
       font-size: 12px;
     }
   }
-   /*  Medium devices (Ipad, 576px and up) */
- @media (max-width: 768px) {
-  
-  .option{
-    font-size: 13px;
-  }
- 
-}
- 

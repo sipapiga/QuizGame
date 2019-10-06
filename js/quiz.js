@@ -17,7 +17,6 @@ class Quiz {
         for (let i = 0; i < choiceJson.length; i++) {
             let choices = document.getElementById("choice" + i);
             choices.innerHTML = choiceJson[i].text;
-            let selectedChoice = document.getElementById("btn" + i);
         }
     }
     //checking answer if it correct or incorrect and control click per question

@@ -67,6 +67,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if (inputs[i].type == "checkbox")
                 inputs[i].checked = false;
     }
+    
     function showScore() {
         quiz.selectAnswer();
         quizDiv.style.display = "none";
