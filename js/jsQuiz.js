@@ -16,7 +16,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let newQuestions = [];
     let scoreHTML;
     //get json file
-    let json = getJSON("http://www.mocky.io/v2/5d91e0d5310000e18410cb79");
 
     okButton.addEventListener("click", startQuiz);
 
@@ -25,10 +24,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
         quizDiv.style.display = "block";
         welcomeDiv.style.display = "none";
         welcomeName.innerHTML = playerName;
-        for (let x = 0; x < numOfQuestion; x++) {
-            newQuestions.push(new Question(json[x].question, json[x].choice));
-        }
-        quiz.renderQuiz();
+        fetch("http://www.mocky.io/v2/5d91e0d5310000e18410cb79")
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                for (let x = 0; x < numOfQuestion; x++) {
+                    console.log(data[x].question);
+                    newQuestions.push(new Question(data[x].question, data[x].choice));
+                    quiz.renderQuiz();
+                }
+            });
         nextPreButton(currentProgress);
     }
     let question = new Question();
@@ -67,7 +73,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if (inputs[i].type == "checkbox")
                 inputs[i].checked = false;
     }
-    
+
     function showScore() {
         quiz.selectAnswer();
         quizDiv.style.display = "none";
