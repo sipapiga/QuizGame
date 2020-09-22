@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         quizDiv.style.display = "block";
         welcomeDiv.style.display = "none";
         welcomeName.innerHTML = playerName;
-        fetch("http://www.mocky.io/v2/5d91e0d5310000e18410cb79")
+        fetch("https://www.mocky.io/v2/5d91e0d5310000e18410cb79")
             .then((response) => {
                 return response.json();
             })
