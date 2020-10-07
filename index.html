@@ -1,189 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head class="page-header header container-fluid">
-    <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <head class="page-header header container-fluid">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quiz game</title>
     <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/readjson.js"> </script>
-    <script src="js/question.js"> </script>
-    <script src="js/quiz.js"> </script>
-    <script src="js/jsQuiz.js"> </script>
-</head>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.js"
+      integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/jsQuiz.js"></script>
+  </head>
 
-<body>
+  <body>
     <!--  Navigation -->
-    <nav class="navbar navbar-expand-md ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">QUIZ TIME</a>
-            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"
-                data-target="#main-navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="main-navigation">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link">Welcome </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nameAfterInput"></a>
-                    </li>
-                </ul>
-            </div>
-
+    <nav class="navbar navbar-expand-md">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">QUIZ TIME</a>
+        <button
+          class="navbar-toggler navbar-dark"
+          type="button"
+          data-toggle="collapse"
+          data-target="#main-navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navigation">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link">Welcome </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nameAfterInput"></a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <!--  end of Navigation -->
     <!-- welcome div -->
 
     <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-12">
-                <div class="quizArea" id="welcome">
-                    <h2 class="display-4">QUIZ TIME</h2>
-                    <div class="row padding">
-                        <div class="col-md-6">
-                            <form>
-                                <div class="form-group">
-                                    <label>Please write your name:</label>
-                                    <input type="text" class="form-control" id="nameInput">
-                                </div>
-                                <div class="form-group">
-                                    <label>Please select how many questions do you
-                                        want?</label>
-                                    <select class="form-control" id="chooseQuestion">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                    </select>
-                                </div>
-                            </form><br>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ruleModal"
-                                id="ok">Lets go!</button> <br>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="images/quiz.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
+      <div class="row padding">
+        <div class="col-12">
+          <div class="quizArea" id="welcome">
+            <h2 class="display-4">QUIZ TIME</h2>
+            <div class="row padding">
+              <div class="col-md-6">
+                <form>
+                  <div class="form-group">
+                    <label>Please write your name:</label>
+                    <input type="text" class="form-control" id="nameInput" />
+                  </div>
+                  <div class="form-group">
+                    <label>Please select how many questions do you want?</label>
+                    <select class="form-control" id="chooseQuestion">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                    </select>
+                  </div>
+                </form>
+                <br />
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#ruleModal"
+                  id="ok"
+                >
+                  Lets go!
+                </button>
+                <br />
+              </div>
+              <div class="col-md-6">
+                <img src="images/quiz.jpg" alt="" />
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
     <!-- end of welcome div -->
     <!-- Modal -->
-    <div class="modal fade" id="ruleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Rule</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>The quiz contains multiple choice questions, meaning that more than one answer can be correct. A
-                        question is marked as passed when correct answers are selected.</p>
-                    <p> Each question allows 2 attempts.</p>
-                    <p>Good Luck! </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      id="ruleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Rule</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              The quiz contains multiple choice questions, meaning that more
+              than one answer can be correct. A question is marked as passed
+              when correct answers are selected.
+            </p>
+            <p>Each question allows 2 attempts.</p>
+            <p>Good Luck!</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
         </div>
+      </div>
     </div>
     <!-- End of Modal -->
     <!-- Quiz -->
 
     <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-12">
-                <div class="quizArea" id="quiz">
-                    <div>
-                        <h2 class="display-4" id="category"></h2>
-                        <hr style="margin-bottom: 20px">
-                        <div class="row padding">
-                            <div class="col-md-6">
-                                <p class="lead">Question # <span class="lead" id="questionNum"></span></p>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="lead">Questions Remaining <span class="lead" id="questionRemain"></span></p>
-                            </div>
-                        </div>
-                        <div class="col-md-12 text-center question">
-                            <p class="lead" id="question"></p>
-                        </div>
-                        <div class="row padding text-center">
-                            <div class="col-md-6">
-                                <label class="option"><input type="checkbox" id="btn0" name="chk"><span
-                                        id="choice0"></span> </label>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="option"><input type="checkbox" id="btn1" name="chk"><span
-                                        id="choice1"></span> </label>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="option"><input type="checkbox" id="btn2" name="chk"><span
-                                        id="choice2"></span> </label>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="option"><input type="checkbox" id="btn3" name="chk"><span
-                                        id="choice3"></span> </label>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <footer>
-                        <div class="container-fluid padding">
-                            <div class="row padding">
-                                <div class="col"></div>
-                                <div class="col-md-6 text-center">
-                                    <button type="button" class="btn btn-outline-dark paginationButton"
-                                        id="nextQuestion">Next</button>
-                                    <button type="button" class="btn btn-outline-dark paginationButton"
-                                        id="finishBtn">Finish</button>
-                                </div>
-                                <div class="col"></div>
-                            </div>
-                        </div>
-                    </footer>
+      <div class="row padding">
+        <div class="col-12">
+          <div class="quizArea" id="quiz">
+            <div class="alert alert-warning" role="alert" id="alertDiv">
+              <strong>Holy guacamole!</strong>You can only select 1 checkbox
+            </div>
+            <div>
+              <h2 class="display-4" id="category"></h2>
+              <hr style="margin-bottom: 20px" />
+              <div class="row padding">
+                <div class="col-md-6">
+                  <p class="lead">
+                    Question # <span class="lead" id="questionNum"></span>
+                  </p>
                 </div>
+                <div class="col-md-6">
+                  <p class="lead">
+                    Questions Remaining
+                    <span class="lead" id="questionRemain"></span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-12 text-center question">
+                <p class="lead" id="question"></p>
+              </div>
+              <div class="row padding text-center">
+                <div class="col-md-6">
+                  <div class="btn-group-toggle parent" data-toggle="buttons">
+                    <label class="btn btn-secondary child">
+                      <input type="checkbox" id="btn0" name="chk" />
+                      <span id="choice0"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="btn-group-toggle parent" data-toggle="buttons">
+                    <label class="btn btn-secondary child">
+                      <input type="checkbox" id="btn1" name="chk" />
+                      <span id="choice1"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="btn-group-toggle parent" data-toggle="buttons">
+                    <label class="btn btn-secondary child">
+                      <input type="checkbox" id="btn2" name="chk" />
+                      <span id="choice2"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="btn-group-toggle parent" data-toggle="buttons">
+                    <label class="btn btn-secondary child">
+                      <input type="checkbox" id="btn3" name="chk" />
+                      <span id="choice3"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="quizArea" id="score"></div>
-            <div class="col-12" id="ani">
-                <h1 class="display-4 animate">QUIZ TIME</h1>
-            </div>
+            <br />
+            <footer>
+              <div class="container-fluid padding">
+                <div class="row padding">
+                  <div class="col"></div>
+                  <div class="col-md-6 text-center">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark paginationButton"
+                      id="nextQuestion"
+                    >
+                      Next
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark paginationButton"
+                      id="finishBtn"
+                    >
+                      Finish
+                    </button>
+                  </div>
+                  <div class="col"></div>
+                </div>
+              </div>
+            </footer>
+          </div>
         </div>
+        <div class="quizArea" id="score"></div>
+        <div class="col-12" id="ani">
+          <h1 class="display-4 animate">QUIZ TIME</h1>
+        </div>
+      </div>
     </div>
     <!-- end of Quiz -->
 
     <!-- footer -->
     <footer class="page-footer fixed-bottom">
-
-        <div class="footer-copyright text-center" id="footer"> </div>
+      <div class="footer-copyright text-center" id="footer"></div>
     </footer>
     <!-- end of footer -->
     <!-- Bootstrap JavaScript -->
-</body>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+      integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

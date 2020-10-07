@@ -1,133 +1,139 @@
-
 body {
-  padding : 0;
-  margin : 0;
-  background : 	#0488F5;
-  }
+  padding: 0;
+  margin: 0;
+  background: #0488f5;
+}
 .navbar {
-  background : 	#D7EEFF;
-  }
+  background: #d7eeff;
+}
 .nav-link:hover {
-  color : #000;
-  }
+  color: #000;
+}
 .navbar-collapse {
-  justify-content : flex-end;
-  }
-.quizArea  {
-  top : 10%;
-  left : 10%;
-  width : 70%;
-  background :#FFFFFF;
-  border : darkred solid 1px;
-  border-radius : 10px;
-  margin : 4em auto;
-  padding : 3em;
-  box-shadow: 5px 10px #888888;
-  }
- form {
+  justify-content: flex-end;
+}
+.quizArea {
+  top: 10%;
+  left: 10%;
   width: 70%;
- }
-img{
+  background: #ffffff;
+  border: darkred solid 1px;
+  border-radius: 10px;
+  margin: 4em auto;
+  padding: 3em;
+  box-shadow: 5px 10px #888888;
+}
+form {
+  width: 70%;
+}
+img {
   width: 100%;
-  }
-#ok{
+}
+#ok {
   width: 100px;
-  background-color: 	#C0B129;
+  background-color: #c0b129;
   box-shadow: 5px 5px rgb(143, 132, 33);
-  }
-#score{
+}
+#score {
   display: none;
-  }
-#quiz{
+}
+#quiz {
   display: none;
-  }
-.question{
+}
+.question {
   width: 100%;
   height: 100%;
-  background-color:	#92A7AA;
-  border-radius : 5px;
+  background-color: #92a7aa;
+  border-radius: 5px;
   padding: 3px;
-  }
-.paginationButton{
+}
+.paginationButton {
   width: 30%;
-  margin: 5px;    
-  }
-.option:hover{
+  margin: 5px;
+}
+.option:hover {
   border: 1px solid #747470;
-  background-color:  	rgb(230, 219, 219);
+  background-color: rgb(230, 219, 219);
   color: rgb(65, 62, 62);
-  }
-.option{
+}
+.option {
   width: 50%;
   height: 60%;
   margin: 20px;
-  background-color:  	#92A7AA;
+  background-color: #92a7aa;
   box-shadow: 1px 5px #e0dbdb;
-   border-radius : 10px;
-  color:#f5eeee;
+  border-radius: 10px;
+  color: #f5eeee;
   vertical-align: middle;
-  cursor: pointer;   
-  }
-.option span{
+  cursor: pointer;
+}
+.option span {
   padding: 10px;
   vertical-align: middle;
-  }
-.option input{
+}
+.option input {
   vertical-align: middle;
-  }
-.page-footer {
-  background-color : 	#D7EEFF;
-  color : #ccc;
-  padding : 10px;
-  }
-.footer-copyright {
-  color : #666;
-  }
-#ani h1{
-  text-align: right;
-  text-shadow: 5px 5px  #b4b0b0;
-  font-weight: bold;
-  color:	#F6F6FE;
-  }
-.animate:hover {
-  -webkit-animation: animate 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  animation: animate 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  }
+}
+.correct {
+  background-color: rgb(27, 166, 34);
+}
 
-  @keyframes animate {
-    0% {
-      letter-spacing: 1em;
-      opacity: 0;
-    }
-    40% {
-      opacity: 0.6;
-    }
-    100% {
-      letter-spacing: normal;
-      opacity: 1;
-    }
+.btn-secondary:not(:disabled):not(.disabled).active {
+  background-color: #1f1e20;
+}
+.page-footer {
+  background-color: #d7eeff;
+  color: #ccc;
+  padding: 10px;
+}
+.footer-copyright {
+  color: #666;
+}
+#ani h1 {
+  text-align: right;
+  text-shadow: 5px 5px #b4b0b0;
+  font-weight: bold;
+  color: #f6f6fe;
+}
+.animate:hover {
+  -webkit-animation: animate 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: animate 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes animate {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
   }
-  
-  /*  Small devices (landscape phones, 576px and up) */
-  @media (max-width: 576px) {
-    .quizArea {
-      left: 0;
-      padding: 0 15px;
-      top: 10%;
-      transform: none;
-      text-align: center;
-    }
-    .quizArea h2{
-      font-size: 50px;
-    }
-    #question{
-      font-size: 15px;
-    }
-    .option{
-      font-size: 13px;
-    }
-    .paginationButton{
-      width: 25%;
-      font-size: 12px;
-    }
+  40% {
+    opacity: 0.6;
   }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+/*  Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .quizArea {
+    left: 0;
+    padding: 0 15px;
+    top: 10%;
+    transform: none;
+    text-align: center;
+  }
+  .quizArea h2 {
+    font-size: 50px;
+  }
+  #question {
+    font-size: 15px;
+  }
+  .option {
+    font-size: 13px;
+  }
+  .paginationButton {
+    width: 25%;
+    font-size: 12px;
+  }
+}
