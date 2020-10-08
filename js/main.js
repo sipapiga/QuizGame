@@ -35,7 +35,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     welcomeDiv.style.display = 'none';
     welcomeName.innerHTML = playerName;
 
-    const questions = await getQuestions();
+    const questions = await getFetch(
+      'https://www.mocky.io/v2/5d91e0d5310000e18410cb79'
+    );
     //Shuffle an array
     questions.sort(() => Math.random() - 0.5);
     for (let x = 0; x < numOfQuestion; x++) {
@@ -48,11 +50,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     quiz.renderQuiz();
     nextPreButton(currentProgress);
   }
-
-  function getQuestions() {
-    return getFetch('https://www.mocky.io/v2/5d91e0d5310000e18410cb79');
-  }
-
   function nextPreButton(num) {
     let current = num;
     if (current === quiz.questions.length - 1) {
@@ -62,13 +59,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
       nextButton.style.visibility = 'visible';
       finishButton.style.visibility = 'hidden';
     }
+    resetAllButtons();
   }
   //show next question button
   function showNext() {
     let continueNext = quiz.selectAnswer();
     console.log(continueNext);
     if (continueNext == true) {
-      resetAllButtons();
       nextPreButton(quiz.questionIndex + 1);
       quiz.questionIndex++;
       quiz.renderQuiz();
@@ -84,21 +81,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         inputs[i].checked = false;
       }
     }
-    console.log(inputs, 'INPUTS');
-    console.log($('.parent'));
-
-    /*   $('.parent').click(function () {
-      $(this).removeClass('active');
-    });
-
-    $('.child').click(function (e) {
-      $(this).parent().removeClass('active');
-    }); */
-    Object.keys(childElement).forEach((element) => {
-      console.log(typeof childElement[element]);
-      childElement[element].classlist.remove('active');
-    });
-    console.log($('.child'));
+    $('.child').removeClass('active');
   }
 
   function showScore() {

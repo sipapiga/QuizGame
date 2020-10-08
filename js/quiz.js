@@ -23,8 +23,8 @@ export default class Quiz {
   }
   //checking answer if it correct or incorrect and control click per question
   selectAnswer() {
+    console.log('click');
     let numberOfChecksPerQuestion = 0;
-    /*     let correctPerQuestion = []; */
     let checkbox = document.getElementsByName('chk');
     for (let i = 0; i < checkbox.length; i++) {
       if (checkbox[i].checked == true) {
@@ -43,14 +43,9 @@ export default class Quiz {
           );
           console.log(userAnswer, 'USER ANSWER');
           if (userAnswer.join() == correctAnswers.join()) {
-            /*       let alreadyCorrect = correctPerQuestion[this.questionIndex];
-            if (alreadyCorrect === undefined) {
-              correctPerQuestion[this.questionIndex] = true; 
-            }*/
             this.score++;
           }
         } else {
-          //alert('You can only select a maximum of 2 checkboxes');
           $('#alertDiv').show();
           checkbox[i].checked = true;
           return false;

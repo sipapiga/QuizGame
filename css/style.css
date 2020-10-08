@@ -51,33 +51,14 @@ img {
   width: 30%;
   margin: 5px;
 }
-.option:hover {
-  border: 1px solid #747470;
-  background-color: rgb(230, 219, 219);
-  color: rgb(65, 62, 62);
-}
+
 .option {
   width: 50%;
   height: 60%;
-  margin: 20px;
-  background-color: #92a7aa;
-  box-shadow: 1px 5px #e0dbdb;
-  border-radius: 10px;
-  color: #f5eeee;
-  vertical-align: middle;
-  cursor: pointer;
-}
-.option span {
-  padding: 10px;
-  vertical-align: middle;
-}
-.option input {
-  vertical-align: middle;
 }
 .correct {
   background-color: rgb(27, 166, 34);
 }
-
 .btn-secondary:not(:disabled):not(.disabled).active {
   background-color: #1f1e20;
 }

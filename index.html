@@ -23,7 +23,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="js/jsQuiz.js"></script>
+    <script type="module" src="js/main.js"></script>
   </head>
 
   <body>
@@ -128,11 +128,10 @@
           </div>
           <div class="modal-body">
             <p>
-              The quiz contains multiple choice questions, meaning that more
-              than one answer can be correct. A question is marked as passed
-              when correct answers are selected.
+              The quiz contains multiple choice questions. A question is marked
+              as passed when correct answer are selected.
             </p>
-            <p>Each question allows 2 attempts.</p>
+            <p>Each question allows 1 attempt.</p>
             <p>Good Luck!</p>
           </div>
           <div class="modal-footer">
@@ -176,34 +175,34 @@
               <div class="col-md-12 text-center question">
                 <p class="lead" id="question"></p>
               </div>
-              <div class="row padding text-center">
-                <div class="col-md-6">
-                  <div class="btn-group-toggle parent" data-toggle="buttons">
-                    <label class="btn btn-secondary child">
+              <div class="row padding text-center mt-3">
+                <div class="col-md-6 mb-3">
+                  <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary child option">
                       <input type="checkbox" id="btn0" name="chk" />
                       <span id="choice0"></span>
                     </label>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="btn-group-toggle parent" data-toggle="buttons">
-                    <label class="btn btn-secondary child">
+                  <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary child option">
                       <input type="checkbox" id="btn1" name="chk" />
                       <span id="choice1"></span>
                     </label>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="btn-group-toggle parent" data-toggle="buttons">
-                    <label class="btn btn-secondary child">
+                  <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary child option">
                       <input type="checkbox" id="btn2" name="chk" />
                       <span id="choice2"></span>
                     </label>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="btn-group-toggle parent" data-toggle="buttons">
-                    <label class="btn btn-secondary child">
+                  <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary child option">
                       <input type="checkbox" id="btn3" name="chk" />
                       <span id="choice3"></span>
                     </label>
