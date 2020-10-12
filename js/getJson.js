@@ -1,5 +1,4 @@
-//Facade Pattern O Module Pattern
-
+//Facade Pattern
 export default function getFetch(url, params = {}) {
   return axios({
     url: url,
